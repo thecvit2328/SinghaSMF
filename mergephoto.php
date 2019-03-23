@@ -11,7 +11,7 @@ function imagettfstroketext(&$image, $size, $angle, $x, $y, &$textcolor, &$strok
 
 
 $imageFile = $_POST['image'];
-$yourname = $_POST['yourname'];
+$yourname = ($_POST['yourname'] == '') ? '......' :$_POST['yourname'];
 
 header('Content-Type: image/png');
 $targetFolder = 'photos/';
