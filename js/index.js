@@ -104,4 +104,10 @@ $(document).delegate('#btn-share-fb', 'click', function(event) {
   photo_file = ''
   $('.share-container').hide()
   $('.register-container').show()
+  $('.step3').hide()
+  $('.step').show()
+  $('#yourname').val('')
+  $('#share-input').val('')
+  $('.col-playzone, .col-btn').show()
+  $('.game-step-2, .step3').hide()
 })
