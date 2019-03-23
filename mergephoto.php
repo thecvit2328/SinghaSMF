@@ -49,8 +49,8 @@ $font = './SukhumvitSet-Medium.ttf';
 $font_color = imagecolorallocate($outputImage, 66, 175, 239);
 $stroke_color = imagecolorallocate($outputImage, 255, 255, 255);
 // $white = imagecolorallocate($outputImage, 255, 255, 255);
-imagettftext($outputImage, 24, 0, 70, 415, $font_color, $font, $text);
-// imagettfstroketext($outputImage, 24, 0, 70, 425, $font_color, $stroke_color, $font, $text, 1);
+// imagettftext($outputImage, 24, 0, 70, 415, $font_color, $font, $text);
+imagettfstroketext($outputImage, 24, 0, 70, 425, $font_color, $stroke_color, $font, $text, 1);
 
 
 $filename = round(microtime(true)).'.png';
