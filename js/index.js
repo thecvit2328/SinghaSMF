@@ -82,22 +82,36 @@ $('#imgInp').change(function() {
 
 $(document).delegate('#btn-share-fb', 'click', function(event) {
   var shareDescription = $('#share-input').val()
+  // FB.ui(
+  //   {
+  //     method: 'feed',
+  //     name: 'Facebook Dialogs',
+  //     link: 'http://www.singhasmf.com/',
+  //     picture: 'http://www.singhasmf.com/photos/' + photo_file,
+  //     caption: 'ทำไมต้องดื่มสิ่งที่ใช่',
+  //     description: shareDescription + ' #ยิ่งดื่มยิ่งใช่ #SinghaDrinkingWater #อยากเห็นคุณดื่มสิ่งที่ใช่ '
+  //   },
+  //   function(data) {
+  //     console.log(response)
+  //     if (data && data.post_id) {
+  //       console.log({ data })
+  //     } else {
+  //       console.error('not sent')
+  //     }
+  //   }
+  // )
   FB.ui(
     {
       method: 'feed',
-      name: 'Facebook Dialogs',
       link: 'http://www.singhasmf.com/',
       picture: 'http://www.singhasmf.com/photos/' + photo_file,
-      caption: 'ทำไมต้องดื่มสิ่งที่ใช่',
-      description: shareDescription + ' #ยิ่งดื่มยิ่งใช่ #SinghaDrinkingWater #อยากเห็นคุณดื่มสิ่งที่ใช่ '
+      caption: 'Title to show',
+      title: 'overrideTitle',
+      description: 'overrideDescription',
+      message: shareDescription + ' #ยิ่งดื่มยิ่งใช่ #SinghaDrinkingWater #อยากเห็นคุณดื่มสิ่งที่ใช่ '
     },
-    function(data) {
+    function(response) {
       console.log(response)
-      if (data && data.post_id) {
-        console.log({ data })
-      } else {
-        console.error('not sent')
-      }
     }
   )
 

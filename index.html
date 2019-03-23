@@ -106,10 +106,17 @@
     <script>
       window.fbAsyncInit = function() {
         FB.init({
-          appId: 409468282955441,
+          appId: '409468282955441',
+          autoLogAppEvents: true,
           xfbml: true,
-          version: 'v2.4'
+          version: 'v2.10'
         })
+        FB.login(
+          function(response) {
+            // do something
+          },
+          { scope: 'email, publish_actions, publish_stream' }
+        )
       }
       ;(function(d, s, id) {
         var js,
@@ -125,6 +132,5 @@
     </script>
 
     <script src="js/index.js"></script>
-
   </body>
 </html>
