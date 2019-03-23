@@ -46,10 +46,10 @@ imagecopyresized($outputImage,$third,0,0,0,0, $x, $y,$x,$y);
 $text = $yourname;
 putenv('GDFONTPATH=' . realpath('.'));
 $font = './SukhumvitSet-Medium.ttf';
-$font_color = imagecolorallocate($outputImage, 54, 104, 169);
+$font_color = imagecolorallocate($outputImage, 66, 175, 239);
 $stroke_color = imagecolorallocate($outputImage, 255, 255, 255);
 // $white = imagecolorallocate($outputImage, 255, 255, 255);
-imagettftext($outputImage, 18, 0, 45, 415, $font_color, $font, $text);
+imagettftext($outputImage, 24, 0, 70, 415, $font_color, $font, $text);
 // imagettfstroketext($outputImage, 24, 0, 70, 425, $font_color, $stroke_color, $font, $text, 1);
 
 

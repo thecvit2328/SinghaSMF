@@ -104,4 +104,8 @@
     top: -55px !important;
     left: -130px !important;
   }
+
+  input[type='range' i] {
+    margin: 10px 0 0 0 !important;
+}
 }
