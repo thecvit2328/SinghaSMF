@@ -1,0 +1,84 @@
+@media (max-width: 990px) {
+  .header img {
+    width: 40%;
+  }
+  .header {
+    padding: 0px 10px;
+  }
+
+  .col-playzone > .col-arrow {
+    display: none;
+  }
+
+  .col-playzone > .col-simple {
+    margin: 10px 0;
+    padding: 0;
+  }
+  .col-playzone .col-simple img {
+    width: 100%;
+  }
+
+  .game-step .arrow {
+    margin: 0;
+  }
+  .step,
+  .step3 {
+    padding: 0;
+    left: 0;
+    margin-left: 0;
+  }
+  .col-playzone-control {
+    padding: 10px 0 0 0;
+    height: 400px;
+  }
+  .step img,
+  .step3 img {
+    width: 75%;
+  }
+
+  .arrow-right {
+    position: absolute;
+    top: 245px;
+    right: -280px;
+  }
+
+  .cr-boundary {
+    height: 75% !important;
+  }
+  .cr-boundary img {
+    transform: none !important;
+  }
+
+  .step3 .fillName {
+    position: absolute;
+    top: 388px;
+    width: 100%;
+  }
+
+  .col-share .col-photos {
+    position: absolute;
+    top: 30px;
+    left: 53px;
+  }
+  .col-share .col-photos img {
+    width: 90px;
+  }
+  .col-share .col-share-input {
+    position: absolute;
+    top: 190px;
+    left: 53px;
+    width: 75%;
+  }
+  #share-input {
+    width: 95%;
+    height: 50px;
+  }
+  .col-share .col-btn-share {
+    position: absolute;
+    top: 360px;
+    left: 53px;
+  }
+  .col-share .col-btn-share img {
+    width: 100px;
+  }
+}
