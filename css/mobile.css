@@ -1,3 +1,5 @@
+@import url('/css/croppie.css');
+
 @media (max-width: 990px) {
   .header img {
     width: 40%;
@@ -46,7 +48,7 @@
     height: 75% !important;
   }
   .cr-boundary img {
-    transform: none !important;
+    /* transform: none !important; */
   }
 
   .step3 .fillName {
@@ -80,5 +82,26 @@
   }
   .col-share .col-btn-share img {
     width: 100px;
+  }
+  .cr-slider {
+    -webkit-appearance: none !important;
+    /* border: 1px solid white; */
+    width: 300px !important;
+    max-width: 100% !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    background-color: transparent !important;
+  }
+
+  .croppie-container .cr-slider-wrap {
+    width: 75% !important;
+    margin: 10px 0 !important;
+    text-align: center !important;
+  }
+  .croppie-container .cr-image {
+    z-index: -1 !important;
+    position: absolute !important;
+    top: -55px !important;
+    left: -130px !important;
   }
 }
