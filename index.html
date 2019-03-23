@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Singha</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="vendor/webfont/styles.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="register-container container">
+      <div class="row">
+        <div class="col-sm text-right header">
+          <img src="./images/logo.png" alt="" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm text-right banner">
+          <img src="./images/banner.png" />
+        </div>
+      </div>
+
+      <div class="row col-playzone">
+        <div class="col-5 col-simple"><img src="./images/frame-01.png" /></div>
+        <div class="col-2 col-arrow"><img src="./images/arrow.png" /></div>
+        <div class="col-5 col-simple"><img src="./images/frame-02.png" /></div>
+      </div>
+
+      <div class="row col-btn">
+        <div class="col-4 col-btn-1"><img src="./images/btn-01.png" /></div>
+        <div class="col-4 col-btn-2"><img src="./images/btn-02.png" /></div>
+        <div class="col-4 col-btn-3">
+          <label for="imgInp"> <img src="./images/btn-03.png"/></label>
+          <input type="file" id="imgInp" />
+        </div>
+      </div>
+
+      <div class="row game-step game-step-2">
+        <div class="col-md-2 arrow">
+          <a href="javascript:;" class="btn-prev"><img src="./images/arrow-left.png" width="60"/></a>
+        </div>
+        <div class="col-md-8 col-playzone-control">
+          <div class="step">
+            <div class="frame-bg"><img src="./images/play/frame-04.png" /></div>
+            <div class="frame-photo photo-crop"></div>
+            <div class="frame-border"><img src="./images/play/frame-06.png" /></div>
+            <div class="frame-focus"><img src="./images/play/frame-05.png" /></div>
+            <div class="frame-singhs">
+              <img src="./images/play/frame-03.png" />
+            </div>
+          </div>
+
+          <div class="step3">
+            <div class="frame-bg"><img src="./images/play/frame-04.png" /></div>
+            <div class="frame-photo">
+              <img src="./images/play/simple_photo.png" />
+            </div>
+            <div class="frame-border"><img src="./images/play/frame-06.png" /></div>
+            <div class="frame-singhs"><img src="./images/play/frame-03.png" /></div>
+
+            <div class="fillName">
+              <div class="form-group">
+                <input type="text" class="form-control" id="yourname" placeholder="ใส่ชื่อของท่าน" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 arrow">
+          <a href="javascript:;" class="btn-next"><img src="./images/arrow.png" width="60"/></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm text-right condition">
+          <img src="./images/conditions.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="share-container container">
+      <div class="row share">
+        <div class="col-md-12 text-right col-share">
+          <img src="./images/share_frame.png" />
+          <div class="col-photos">
+            <img src="./photos/1553312248.png" />
+          </div>
+          <div class="col-share-input">
+            <textarea class="form-control" id="share-input" rows="3"></textarea>
+          </div>
+          <div class="col-btn-share">
+            <a href="javascript:;" id="btn-share-fb"><img src="./images/btn-share.png"/></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/Croppie/croppie.min.js"></script>
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: 409468282955441,
+          xfbml: true,
+          version: 'v2.4'
+        })
+      }
+      ;(function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0]
+        if (d.getElementById(id)) {
+          return
+        }
+        js = d.createElement(s)
+        js.id = id
+        js.src = '//connect.facebook.net/en_US/sdk.js'
+        fjs.parentNode.insertBefore(js, fjs)
+      })(document, 'script', 'facebook-jssdk')
+    </script>
+
+    <script src="js/index.js"></script>
+
+  </body>
+</html>

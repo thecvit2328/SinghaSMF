@@ -1,0 +1,204 @@
+* {
+  color: #000000 !important;
+}
+
+body {
+  background-image: url('../images/background.jpg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 100%;
+  font-family: 'PSLKandaModernBold' !important;
+  color: #000000 !important;
+  font-size: 20px;
+  padding: 20px 0;
+}
+
+.header {
+  padding: 20px 0;
+}
+
+.banner img,
+.col-playzone img,
+.condition img {
+  width: 100%;
+}
+
+.condition {
+  margin: 50px 0;
+}
+/* =========== col-playzone  =========== */
+.col-playzone .col-simple {
+  text-align: center;
+}
+
+.col-playzone .col-simple img {
+  width: 400px;
+}
+.col-playzone .col-arrow {
+  text-align: center;
+  padding-top: 160px;
+}
+
+.col-playzone .col-arrow img {
+  width: 80px;
+}
+
+/* ========= col-playzone-control ========= */
+
+.col-playzone-control {
+  padding: 40px 0;
+  height: 650px;
+}
+
+.step,
+.step3 {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  padding: 20px 0;
+  left: 50%;
+  margin-left: -250px;
+}
+
+.step .frame-bg,
+.step3 .frame-bg {
+  position: absolute;
+  z-index: 1;
+}
+
+.step .frame-photo,
+.step3 .frame-photo {
+  position: absolute;
+  z-index: 2;
+  height: 500px;
+  width: 500px;
+}
+.cr-boundary {
+  height: 500px;
+  width: 500px;
+  overflow: hidden;
+}
+
+.cr-viewport,
+.cr-overlay {
+  height: 500px;
+  width: 500px;
+  top: 0;
+  position: absolute;
+}
+
+.cr-slider-wrap {
+  z-index: 999;
+  position: relative;
+  background: #7fa3ca;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.cr-slider {
+  -webkit-appearance: none;
+  /* border: 1px solid white; */
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  padding: 8px 20px 0 20px;
+}
+
+input[type='range' i] {
+  -webkit-appearance: slider-horizontal;
+  color: #ffffff !important;
+  cursor: default;
+  padding: initial;
+  border: initial;
+  margin: 8px 20px 0 20px;
+  width: 460px;
+}
+
+.step .frame-border,
+.step3 .frame-border {
+  position: absolute;
+  z-index: 4;
+}
+
+.step .frame-focus,
+.step3 .frame-focus {
+  position: absolute;
+  z-index: 5;
+}
+
+.step .frame-singhs,
+.step3 .frame-singhs {
+  position: absolute;
+  z-index: 6;
+}
+
+.step3 .fillName {
+  position: absolute;
+  top: 540px;
+  width: 100%;
+}
+
+.game-step .arrow {
+  margin-top: 250px;
+  z-index: 99999;
+}
+.col-btn-3 > input {
+  display: none;
+}
+
+.share img {
+  width: 100%;
+}
+
+.share-container {
+  display: none;
+}
+
+.col-share {
+  position: relative;
+}
+
+.col-share .col-photos {
+  position: absolute;
+  top: 100px;
+  left: 137px;
+}
+.col-share .col-photos img {
+  width: 288px;
+}
+
+.col-share .col-share-input {
+  position: absolute;
+  top: 600px;
+  left: 137px;
+  width: 75%;
+}
+.col-share .col-btn-share {
+  position: absolute;
+  top: 1180px;
+  left: 137px;
+}
+
+.col-share .col-btn-share  img{
+  width: 200px;
+}
+
+#share-input{
+  width: 100%;
+  height: 180px;
+}
+/* ============ BTN ============ */
+
+.col-btn-1,
+.col-btn-2,
+.col-btn-3 {
+  text-align: center;
+}
+
+.col-btn-1 img,
+.col-btn-2 img,
+.col-btn-3 img {
+  width: 200px;
+  padding: 30px 0;
+  cursor: pointer;
+}
