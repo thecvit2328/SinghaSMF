@@ -44,7 +44,8 @@ imagecopyresized($outputImage,$third,0,0,0,0, $x, $y,$x,$y);
 //imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text )
 //$white = imagecolorallocate($im, 255, 255, 255);
 $text = $yourname;
-$font = 'SukhumvitSet-Medium.ttf';
+putenv('GDFONTPATH=' . realpath('.'));
+$font = './SukhumvitSet-Medium.ttf';
 $font_color = imagecolorallocate($outputImage, 54, 104, 169);
 $stroke_color = imagecolorallocate($outputImage, 255, 255, 255);
 // $white = imagecolorallocate($outputImage, 255, 255, 255);
