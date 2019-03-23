@@ -55,6 +55,7 @@ $(document).delegate('.btn-next', 'click', function(event) {
       })
     step = step + 1
   } else if (step == 3) {
+    console.log($('#yourname').val())
     $.ajax({
       url: 'mergephoto.php',
       type: 'POST',
