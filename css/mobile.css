@@ -66,15 +66,15 @@
 
   .col-share .col-photos {
     position: absolute;
-    top: 30px;
-    left: 53px;
+    top: 34px;
+    left: 57px;
   }
   .col-share .col-photos img {
-    width: 90px;
+    width: 98px;
   }
   .col-share .col-share-input {
     position: absolute;
-    top: 190px;
+    top: 208px;
     left: 53px;
     width: 75%;
   }
@@ -84,7 +84,7 @@
   }
   .col-share .col-btn-share {
     position: absolute;
-    top: 360px;
+    top: 395px;
     left: 53px;
   }
   .col-share .col-btn-share img {
