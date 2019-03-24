@@ -16,13 +16,13 @@ $yourname = ($_POST['yourname'] == '') ? '......' :$_POST['yourname'];
 header('Content-Type: image/png');
 $targetFolder = 'photos/';
 
-$x=$y=500;
+$x=$y=300;
 
 $img1 = "photos/$imageFile";
 $img2 = 'images/play/frame-06.png';
 $img3 = 'images/play/frame-07.png';
 
-$outputImage = imagecreatetruecolor(500, 500);
+$outputImage = imagecreatetruecolor(300, 300);
 
 // set background to white
 $first = imagecreatefrompng($img1);
@@ -46,11 +46,11 @@ imagecopyresized($outputImage,$third,0,0,0,0, $x, $y,$x,$y);
 $text = $yourname;
 putenv('GDFONTPATH=' . realpath('.'));
 $font = './SukhumvitSet-Medium.ttf';
-$font_color = imagecolorallocate($outputImage, 66, 175, 239);
+$font_color = imagecolorallocate($outputImage, 70, 129, 188);
 $stroke_color = imagecolorallocate($outputImage, 255, 255, 255);
 // $white = imagecolorallocate($outputImage, 255, 255, 255);
 // imagettftext($outputImage, 24, 0, 70, 415, $font_color, $font, $text);
-imagettfstroketext($outputImage, 24, 0, 70, 425, $font_color, $stroke_color, $font, $text, 2);
+imagettfstroketext($outputImage, 28, 0, 40, 250, $font_color, $stroke_color, $font, $text, 2);
 
 
 $filename = round(microtime(true)).'.png';

@@ -25,9 +25,9 @@
   }
   .step,
   .step3 {
-    padding: 0;
+    /* padding: 0;
     left: 0;
-    margin-left: 0;
+    margin-left: 0; */
   }
   .col-playzone-control {
     padding: 10px 0 0 0;
@@ -35,13 +35,19 @@
   }
   .step img,
   .step3 img {
-    width: 75%;
+    /* width: 75%; */
+  }
+
+  .step .frame-photo,
+  .step3 .frame-photo {
+    height: 400px;
   }
 
   .arrow-right {
     position: absolute;
     top: 245px;
-    right: -280px;
+    left: 280px;
+    width: 0;
   }
 
   .cr-boundary {
@@ -53,8 +59,9 @@
 
   .step3 .fillName {
     position: absolute;
-    top: 388px;
+    top: 338px;
     width: 100%;
+    z-index: 9999;
   }
 
   .col-share .col-photos {
@@ -92,20 +99,7 @@
     padding-bottom: 8px !important;
     background-color: transparent !important;
   }
-
   .croppie-container .cr-slider-wrap {
-    width: 75% !important;
-    margin: 10px 0 !important;
-    text-align: center !important;
+    padding: 6px 9px 0px 9px;
   }
-  .croppie-container .cr-image {
-    z-index: -1 !important;
-    position: absolute !important;
-    top: -55px !important;
-    left: -130px !important;
-  }
-
-  input[type='range' i] {
-    margin: 10px 0 0 0 !important;
-}
 }

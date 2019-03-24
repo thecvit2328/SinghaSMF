@@ -7,10 +7,10 @@ jQuery(document).ready(function($) {
 
 var basic = $('.photo-crop').croppie({
   viewport: {
-    width: 500,
-    height: 500
+    width: 300,
+    height: 300
   },
-  mouseWheelZoom: false
+  mouseWheelZoom: true
 })
 
 //https://jsfiddle.net/michaelyuen/5f2wwafp/
