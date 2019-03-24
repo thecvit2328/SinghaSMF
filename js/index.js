@@ -1,4 +1,4 @@
-var step = 2
+var step = 1
 var photo_file = ''
 
 jQuery(document).ready(function($) {
@@ -23,7 +23,7 @@ function readURL(input) {
         url: e.target.result
       })
 
-      $('.col-playzone, .col-btn, .step3').hide()
+      $('.col-playzone, .col-btn, .step3, .frame-border, .frame-focus, .frame-singhs').hide()
       $('.game-step-2').show()
     }
     reader.readAsDataURL(input.files[0])
@@ -32,7 +32,10 @@ function readURL(input) {
 
 $(document).delegate('.btn-next', 'click', function(event) {
   console.log({ step })
-  if (step == 2) {
+  if (step == 1) {
+    $(' .frame-border, .frame-focus, .frame-singhs').show()
+    step = step + 1
+  } else if (step == 2) {
     // upload crop images
     basic
       .croppie('result', {
@@ -67,13 +70,19 @@ $(document).delegate('.btn-next', 'click', function(event) {
         $('.share-container').show()
       }
     })
-    step = 2
+    step = 1
   }
 })
 
 $(document).delegate('.btn-prev', 'click', function(event) {
-  $('.col-playzone, .col-btn').show()
-  $('.game-step-2, .step3').hide()
+  console.log({ step })
+  if (step == 3) {
+    $('.col-playzone, .col-btn').show()
+    $('.game-step-2, .step3, .frame-border, .frame-focus, .frame-singhs').hide()
+  } else if (step == 2) {
+    $(' .frame-border, .frame-focus, .frame-singhs').hide()
+  }
+  step = 1
 })
 
 $('#imgInp').change(function() {
@@ -91,7 +100,7 @@ $(document).delegate('#btn-share-fb', 'click', function(event) {
         object: {
           'og:url': 'https://singhasmf.com/', // your url to share,
           'og:title': 'ทำไมต้องดื่มสิ่งที่ใช่',
-          'og:description': shareDescription ,
+          'og:description': shareDescription,
           'og:image': 'http://www.singhasmf.com/photos/' + photo_file
         }
       })
@@ -106,7 +115,7 @@ $(document).delegate('#btn-share-fb', 'click', function(event) {
     }
   )
 
-  step = 2
+  step = 1
   photo_file = ''
   $('.share-container').hide()
   $('.register-container').show()
