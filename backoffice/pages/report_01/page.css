@@ -1,0 +1,12 @@
+.thumbnails li.span2:first-child{
+	margin-left: 2.5641%;
+}
+#upload_file_box{
+	text-align:center;
+	width:100%;
+}
+#remark-upload {
+	margin:0 auto;
+	width:400px;
+	text-align:left;
+}

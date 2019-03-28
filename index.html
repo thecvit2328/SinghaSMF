@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,7 +59,7 @@
           <div class="step3">
             <div class="frame-bg"><img src="./images/play/frame-04.png" /></div>
             <div class="frame-photo">
-              <img src="./images/play/simple_photo.png" />
+              <img src="./images/play/simple_photo.jpg" />
             </div>
             <div class="frame-border"><img src="./images/play/frame-06.png" /></div>
             <div class="frame-singhs"><img src="./images/play/frame-03.png" /></div>
@@ -88,7 +88,7 @@
         <div class="col-md-12 text-right col-share">
           <img src="./images/share_frame.png" />
           <div class="col-photos">
-            <img src="./images/play/simple_photo.png" />
+            <img src="./images/play/simple_photo.jpg" />
           </div>
           <div class="col-share-input">
             <textarea class="form-control" id="share-input" rows="3"></textarea>
@@ -106,69 +106,100 @@
     <script src="vendor/Croppie/croppie.min.js"></script>
     <div id="fb-root"></div>
     <script>
-      // This is called with the results from from FB.getLoginStatus().
-      function statusChangeCallback(response) {
-        console.log('statusChangeCallback')
-        console.log(response)
-        // The response object is returned with a status field that lets the
-        // app know the current login status of the person.
-        // Full docs on the response object can be found in the documentation
-        // for FB.getLoginStatus().
-        if (response.status === 'connected') {
-          // Logged into your app and Facebook.
-          testAPI()
-        } else {
-          FB.login(
-            function(response) {
-              console.log({ response })
-              // handle the response
-            },
-            // { scope: 'public_profile,publish_actions, publish_stream,email' }
-            { scope: 'public_profile,email' }
-          )
-        }
-      }
+      // var fbProfile = {}
+      // // This is called with the results from from FB.getLoginStatus().
+      // function statusChangeCallback(response) {
+      //   // console.log('statusChangeCallback')
+      //   // console.log(response)
+      //   // The response object is returned with a status field that lets the
+      //   // app know the current login status of the person.
+      //   // Full docs on the response object can be found in the documentation
+      //   // for FB.getLoginStatus().
+      //   if (response.status === 'connected') {
+      //     // Logged into your app and Facebook.
+      //     getFBProfileAPI()
+      //   } else {
+      //     FB.login(
+      //       function(response) {
+      //         console.log({ response })
+      //         // handle the response
+      //       },
+      //       // { scope: 'public_profile,publish_actions, publish_stream,email' }
+      //       { scope: 'public_profile,email' }
+      //     )
+      //   }
+      // }
 
-      function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-          statusChangeCallback(response)
-        })
-      }
+      // function checkLoginState() {
+      //   FB.getLoginStatus(function(response) {
+      //     statusChangeCallback(response)
+      //   })
+      // }
 
+      // window.fbAsyncInit = function() {
+      //   FB.init({
+      //     appId: '890606721283059',
+      //     status: true,
+      //     autoLogAppEvents: true,
+      //     cookie: true, // enable cookies to allow the server to access
+      //     // the session
+      //     xfbml: true, // parse social plugins on this page
+      //     version: 'v2.10' // The Graph API version to use for the call
+      //   })
+      //   FB.AppEvents.logPageView()
+      //   FB.getLoginStatus(function(response) {
+      //     statusChangeCallback(response)
+      //   })
+      // }
+
+      // // Load the SDK asynchronously
+      // ;(function(d, s, id) {
+      //   var js,
+      //     fjs = d.getElementsByTagName(s)[0]
+      //   if (d.getElementById(id)) return
+      //   js = d.createElement(s)
+      //   js.id = id
+      //   js.src = 'https://connect.facebook.net/en_US/sdk.js'
+      //   fjs.parentNode.insertBefore(js, fjs)
+      // })(document, 'script', 'facebook-jssdk')
+
+      // function getFBProfileAPI() {
+      //   FB.api('/me', function(response) {
+      //     // console.log({ response })
+      //     // console.log('Successful login for: ' + response.name)
+      //     fbProfile = { id: response.id, name: response.name }
+      //   })
+      //   return fbProfile
+      // }
+    </script>
+    <script>
       window.fbAsyncInit = function() {
         FB.init({
           appId: '890606721283059',
-          cookie: true, // enable cookies to allow the server to access
-          // the session
-          xfbml: true, // parse social plugins on this page
-          version: 'v2.8' // The Graph API version to use for the call
-        })
-
-        FB.getLoginStatus(function(response) {
-          statusChangeCallback(response)
+          cookie: true,
+          xfbml: true,
+          version: 'v2.5'
         })
       }
 
-      // Load the SDK asynchronously
       ;(function(d, s, id) {
         var js,
           fjs = d.getElementsByTagName(s)[0]
-        if (d.getElementById(id)) return
+        if (d.getElementById(id)) {
+          return
+        }
         js = d.createElement(s)
         js.id = id
-        js.src = 'https://connect.facebook.net/en_US/sdk.js'
+        js.src = '//connect.facebook.net/en_US/sdk.js'
         fjs.parentNode.insertBefore(js, fjs)
       })(document, 'script', 'facebook-jssdk')
 
-      function testAPI() {
-        console.log('Welcome!  Fetching your information.... ')
-        FB.api('/me', function(response) {
-          console.log({response})
-          console.log('Successful login for: ' + response.name)
-        })
-      }
+      $(document).ready(function() {
+        setTimeout(function() {
+          login()
+        }, 500)
+      })
     </script>
-
     <script src="js/index.js"></script>
   </body>
 </html>
