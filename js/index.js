@@ -1,6 +1,6 @@
 var step = 1
 var txt_name = ''
-var txt_share_message = ''
+var txt_caption = ''
 var photo_file = ''
 var fb_tame_head = ''
 var fb_uid = ''
@@ -112,14 +112,14 @@ $('#imgInp').change(function() {
 })
 
 $(document).delegate('#btn-share-fb', 'click', function(event) {
-  txt_share_message = $('#share-input').val()
+  txt_caption = $('#share-input').val()
   // var obj = {
   //   method: 'feed',
   //   display: 'iframe',
   //   hashtag: '#SinghaDrinkingWater',
   //   name: 'ทำไมต้องดื่มสิ่งที่ใช่',
   //   caption: '',
-  //   description: txt_share_message,
+  //   description: txt_caption,
   //   picture: 'http://www.singhasmf.com/photos/' + photo_file,
   //   link: 'https://singhasmf.com/'
   // }
@@ -132,25 +132,25 @@ $(document).delegate('#btn-share-fb', 'click', function(event) {
       object: {
         'og:url': 'https://singhasmf.com/',
         'og:title': 'ทำไมต้องดื่มสิ่งที่ใช่',
-        'og:description': txt_share_message,
+        'og:description': txt_caption,
         'og:image': 'http://www.singhasmf.com/photos/' + photo_file
       }
     })
   }
   function callback(response) {
-    console.log({ fb_uid, fb_name, txt_name, txt_share_message, photo_file })
+    console.log({ fb_uid, fb_name, txt_name, txt_caption, photo_file })
     console.log({ response })
     if (response && !response.error_message) {
       console.log('Posting completed.')
     } else {
       console.log('Error while posting.')
     }
-    saveData(fb_uid, fb_name, txt_name, txt_share_message, photo_file, response)
+    saveData(fb_uid, fb_name, txt_name, txt_caption, photo_file, response)
   }
   FB.ui(obj, callback)
 })
 
-function saveData(fb_uid, fb_name, txt_name, txt_share_message, photo_file, FBResp) {
+function saveData(fb_uid, fb_name, txt_name, txt_caption, photo_file, FBResp) {
   $.post()
 
   var formData = new Array()
@@ -159,7 +159,7 @@ function saveData(fb_uid, fb_name, txt_name, txt_share_message, photo_file, FBRe
   formData.push({ name: 'fb_uid', value: fb_uid })
   formData.push({ name: 'fb_name', value: fb_name })
   formData.push({ name: 'txt_name', value: txt_name })
-  formData.push({ name: 'txt_share_message', value: txt_share_message })
+  formData.push({ name: 'txt_caption', value: txt_caption })
   formData.push({ name: 'photo_file', value: photo_file })
   console.log(formData)
 
@@ -172,7 +172,9 @@ function saveData(fb_uid, fb_name, txt_name, txt_share_message, photo_file, FBRe
     type: 'POST',
     success: function(data) {
       console.log(data)
-      reset()
+      alert('ขอบคุณที่ร่วมสนุก\nทางเราได้ทำการบันทึกข้อมูลของท่านเรียบร้อยแล้ว ขอบคุณค่ะ!')
+      // reset()
+      window.location.reload()
     }
   })
 }
@@ -180,7 +182,7 @@ function saveData(fb_uid, fb_name, txt_name, txt_share_message, photo_file, FBRe
 function reset() {
   step = 1
   txt_name = ''
-  txt_share_message = ''
+  txt_caption = ''
   photo_file = ''
   $('.share-container').hide()
   $('.register-container').show()

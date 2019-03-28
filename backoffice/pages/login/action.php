@@ -10,7 +10,7 @@ if($_REQUEST['action']=="signin"){
 	$USERNAME	=	$_POST['username'];
 	$PASSWORD	=	$_POST['password'];
 
-	if($USERNAME == "admin" and $PASSWORD == "P@ssw0rd"){
+	if($USERNAME === "admin" and $PASSWORD === "Welcome1#"){
 		$_SESSION['ssADMIN_ID'] = "1";
 		echo "y";
 	}else{ 

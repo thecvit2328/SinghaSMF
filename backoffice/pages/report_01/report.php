@@ -9,20 +9,6 @@ require_once('../../config.php');
 require_once('../../../src/class.inputfilter.php');
 $InputFilter = new InputFilter();
 
-/*SQL SEARCH*************************************************************/
-  $SEARCH_KEYWORD = trim($_REQUEST['kw']); // กำหนดคำค้นหา
-  $SEARCH_REGISTER_FROM = trim($_REQUEST['rf']); // กำหนดช่วงเวลาที่
-  $SEARCH_REGISTER_TO = trim($_REQUEST['rt']); // กำหนดช่วงเวลาที่
-  $SEARCH_DELETED_FLAG = trim($_REQUEST['aa']); // สถานะ Publish / Unpublish 
-
-  $SQLWHERE = " ";
-  if($SEARCH_KEYWORD != "" ){ $SQLWHERE .= " AND ( gl.BABY_FIRST_NAME LIKE '%{$SEARCH_KEYWORD}%' OR gl.BABY_LAST_NAME LIKE '%{$SEARCH_KEYWORD}%' OR gl.BABY_NICKNAME LIKE '%{$SEARCH_KEYWORD}%' OR gl.FIRST_NAME LIKE '%{$SEARCH_KEYWORD}%' OR gl.LAST_NAME LIKE '%{$SEARCH_KEYWORD}%' OR gl.TELEPHONE_NUMBER LIKE '%{$SEARCH_KEYWORD}%' OR gl.EMAIL LIKE '%{$SEARCH_KEYWORD}%' ) "; } 
-  if($SEARCH_REGISTER_FROM != "" and $SEARCH_REGISTER_TO != "" ){ $SQLWHERE .= " AND ( (STR_TO_DATE(pt.CREATE_TIME,'%Y-%m-%d') BETWEEN '{$SEARCH_REGISTER_FROM}' AND '{$SEARCH_REGISTER_TO}') )"; }
-  if($SEARCH_DELETED_FLAG != "" ){ $SQLWHERE .= " AND gl.DELETED_FLAG = '{$SEARCH_DELETED_FLAG}' "; } 
-  
-  //http://www.thaiseoboard.com/index.php?topic=77951.0;wap2
-  $SQLORDERBY = "ORDER BY pt.CREATE_TIME DESC, pt.UPDATE_TIME DESC " ;
-  
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -61,46 +47,52 @@ $InputFilter = new InputFilter();
 <table width="100%" border="0" cellpadding="5" cellspacing="0">
   <thead>
     <tr>
-      <th style="text-align:center; width:91px;">รูปภาพ</th>
-      <th style="text-align:left;">ข้อมูลลงทะเบียน</th>
-      <th style="text-align:center; width:80px;">คะแนนโหวต</th>
-      <th style="text-align:center; width:150px;">วันที่เข้าร่วม</th>
-      <th style="text-align:center; width:150px;">สถานะ</th>
+      <th style="text-align:center; width:100px;">รูปภาพ</th>
+      <th style="text-align:left; width:250px;">ข้อมูลลงทะเบียน</th>
+      <th style="text-align:left; width:250px;">ข้อมูลจาก facebook</th>
+      <th style="text-align:left; width:250px;">สถานะการแชร์</th>
+      <th style="text-align:left; width:250px;">วันที่-เวลา</th>
     </tr>
   </thead>
         <tbody>
          <?php
           $ArrStauts = array('publish','unpublish');
-
-          $sql  = " SELECT pt.*, gl.* , pt.CREATE_TIME as PHOTO_CREATE_TIME 
-              FROM bab_gallery_photo as pt    
-              LEFT JOIN bab_gallery as gl ON gl.GALLERY_ID = pt.GALLERY_ID  
-              WHERE pt.DRAFT_ACTIVE = '0' {$SQLWHERE}  
-              {$OrderBy} ";
+          $sql  = " SELECT * 
+              FROM tbl_register    
+              -- WHERE 
+              ORDER BY createDate DESC ";
           $result = $db->query($sql);
           while($line = $db->fetchNextObject($result)){
-            $MEDIA_ID = $line->MEDIA_ID;
-            $GALLERY_ID = $line->GALLERY_ID;
-            $MEMBER_ID = $line->MEMBER_ID;
-            $MEMBER_NAME  = unchkhtmlspecialchars( $line->MEMBER_NAME );
-            $MESSAGES_TXT  = unchkhtmlspecialchars( $line->MESSAGES_TXT );
-            $TOTAL_VOTE  = (int)( $line->TOTAL_VOTE );
-            $THUMBNAIL = $line->FILE_NAME;
-            $CREATE_TIME = ($line->PHOTO_CREATE_TIME == "") ? "-" : DateThai($line->PHOTO_CREATE_TIME,"datetime");
-            $DELETED_FLAG = $line->DELETED_FLAG;
+            $fb_uid = $line->fb_uid;
+            $fb_name = $line->fb_name;
+            $txt_name = $line->txt_name;
+            $txt_caption  = unchkhtmlspecialchars( $line->txt_caption );
+            $photo_file  = $line->photo_file ;
+            $fb_share_id  = $line->fb_share_id ;
+            $fb_share_mode  = $line->fb_share_mode ;
+            $createDate  = $line->createDate ;
           ?>
               <tr>
-                <td><a href="http://project.momypedia.com/baby-i-love-u/file_upload/<?=$THUMBNAIL;?>" tatget="_blank"><img src="http://project.momypedia.com/baby-i-love-u/file_upload/thumbnail/<?=$THUMBNAIL;?>"></a></td>
+                <td><a href="../photos/<?=$photo_file;?>" tatget="_blank"><img src="../photos/<?=$photo_file;?>" width="100"></a></td>
                 <td>
                   <div class="span12">
-                    <strong>Username (ID)</strong> &nbsp;&nbsp;<?php echo $MEMBER_NAME;?> (<?php echo $MEMBER_ID;?>)<br>
-                    <strong>คำบอกรัก</strong> &nbsp;&nbsp;<?php echo $MESSAGES_TXT;?> <br>
+                    <strong>name</strong> &nbsp;&nbsp;<?php echo $txt_name;?><br>
+                    <strong>caption</strong> &nbsp;&nbsp;<?php echo $txt_caption;?> 
                   </div>   
-                  <a href="http://project.momypedia.com/baby-i-love-u/file_upload/<?=$THUMBNAIL;?>" target="_blank">http://project.momypedia.com/baby-i-love-u/file_upload/<?=$THUMBNAIL;?></a>
                 </td>
-                <td style="text-align:center; "><?=$TOTAL_VOTE;?></td>
-                <td style="text-align:center; "><?=$CREATE_TIME;?></td>
-                <td style="text-align:center; "><?=$ArrStauts[$DELETED_FLAG];?></td>
+                <td>
+                  <div class="span12">
+                    <strong>facebook id</strong> &nbsp;&nbsp;<?php echo $fb_uid;?><br>
+                    <strong>facebook name</strong> &nbsp;&nbsp;<?php echo $fb_name;?> 
+                  </div>   
+                </td>
+                <td>
+                  <div class="span12">
+                    <strong>share id</strong> &nbsp;&nbsp; <a href=""><?php echo $fb_share_id;?></a><br>
+                    <strong>share mode</strong> &nbsp;&nbsp;<?php echo $fb_share_mode;?> 
+                  </div>   
+                </td>
+                <td style="text-align:center; "><?=$createDate;?></td>
               </tr>
          <?php $Sequence++; } ?>
         </tbody>
